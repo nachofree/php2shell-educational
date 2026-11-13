@@ -8,6 +8,8 @@ services:
     image: ${PHP_IMAGE:-php:8.4.26-apache}
     platform: linux/amd64
     container_name: php2shell-target
+    # Disable ASLR for predictable memory layout (exploit requires this)
+
     ports:
       - "127.0.0.1:8088:80"
     volumes:
